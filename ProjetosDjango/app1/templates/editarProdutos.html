@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Editar Produtos</title>
+</head>
+<body>
+   <form method="POST">    <!--os metodos disponivel sao GET e POST, os dois possuem a funcionalidade de enviar dados de forma encapsulada no request-->
+
+       {% csrf_token %} <!--tag de validação do django(para poder utilizar o formulario), ele envia os dados da requisição forma criptografada-->
+       
+       <label>Código do Produto</label>
+       <input type="number" name="cod" value=" {{dadosProduto.cod}}"/>
+       
+       <label>Nome do Produto</label>
+       <input type="text" name="nome" value=" {{dadosProduto.nome}}"/>
+
+       <label>Valor unitário</label>
+       <input type="number" name="valor" value=" {{dadosProduto.valor}}"/>
+
+       <input type="submit" value="Atualizar"/>
+
+   </form>
+</body>
+</html>

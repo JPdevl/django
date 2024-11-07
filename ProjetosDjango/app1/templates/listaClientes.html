@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Clientes</title>
+</head>
+<body>
+    <table border="">
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <td>CPF</td>
+                <td>Endereço</td>
+                <td>Data de Nascimento</td>
+                <td>Ação</td>
+            </tr>
+        </thead>
+        <tbody>            
+                {% for valor in listaClientes %}
+               
+                <tr>
+                    <td>
+                        {{valor.nome}}
+                    </td>
+                    <td>
+                        {{valor.cpf}}
+                    </td>
+                    <td>
+                        {{valor.endereco}}
+                    </td>
+                    <td>
+                        {{valor.data_nascimento}}
+                    </td>
+                    <td>
+                        <a href="{% url 'detalharClientes' valor.id %}"><img src="https://cdn-icons-png.flaticon.com/512/64/64673.png" width="20px"></a>
+                        <a href="{% url 'editarClientes' valor.id %}"><img src="https://cdn-icons-png.flaticon.com/512/1827/1827951.png" width="20px"></a>
+                        <a href="{% url 'excluirClientes' valor.id %}"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnRlKcC-x0QEI0-kzDnG48PRfnDYKzaLV2Q&s" width="20px"></a>
+                    </td>
+
+
+
+
+                </tr>
+           
+                {%  endfor  %}
+           
+        </tbody>
+       
+
+
+    </table>
+</body>
+</html>

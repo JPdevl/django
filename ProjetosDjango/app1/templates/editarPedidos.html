@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Editar Pedidos</title>
+</head>
+<body>
+   <form method="POST">    <!--os metodos disponivel sao GET e POST, os dois possuem a funcionalidade de enviar dados de forma encapsulada no request-->
+
+       {% csrf_token %} <!--tag de validação do django(para poder utilizar o formulario), ele envia os dados da requisição forma criptografada-->
+       
+       <label>Data do Pedido</label>
+       <input type="date" name="data" value=" {{dadosPedido.data|date:'Y-m-d'}}"/>
+       
+       <label>Valor do Pedido</label>
+       <input type="number" name="valor" value=" {{dadosPedido.valor}}"/>
+
+       <label>Descrição do Pedido</label>
+       <input type="text" name="descricao" value=" {{dadosPedido.descricao}}"/>
+
+       <label>ID do Cliente</label>
+       <input type="number" name="id_cliente" value="{{dadosPedido.id_cliente}}"/>
+
+       <label>ID do Produto</label>
+       <input type="number" name="id_produto" value="{{dadosPedido.id_produto}}"/>
+
+       <input type="submit" value="Atualizar"/>
+
+   </form>
+</body>
+</html>
